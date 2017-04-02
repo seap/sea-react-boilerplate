@@ -3,14 +3,11 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 // import api from '../middlewares/api'
 
-const middlewares = [
-  thunk
-]
+const middlewares = [thunk]
 let devToolsExtension = f => f
 
 if (__DEV__) {
-  const createLogger = require('redux-logger')
-  const logger = createLogger({ collapsed: true })
+  const { logger } = require('redux-logger')
   middlewares.push(logger)
 
   if (window.devToolsExtension) {

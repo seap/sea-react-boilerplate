@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
+
+import styles from './main.scss'
 
 class Hello extends Component {
 
@@ -6,6 +9,9 @@ class Hello extends Component {
     return (
       <div>
         Hello Sea Yang!
+        <Link to='/home/counter'>
+        <div className={styles.linkBtn}>counter</div>
+        </Link>
       </div>
     )
   }

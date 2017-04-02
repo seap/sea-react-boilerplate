@@ -1,5 +1,4 @@
 import Hello from './Hello'
-import Counter from './Counter'
 
 export default {
   path: '/home',
@@ -12,7 +11,9 @@ export default {
     },
     { path: 'counter',
       name: 'Counter',
-      component: Counter,
+      getComponent(location, cb) {
+        require.ensure([], require => cb(null, require('./Counter').default), 'counter')
+      },
       isIndex: true,
     }
   ]

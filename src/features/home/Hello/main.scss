@@ -1,0 +1,13 @@
+@import '../../../styles/mixin.scss';
+
+.linkBtn {
+  width: toRem(700px);
+  height: toRem(80px);
+  margin: toRem(50px) auto 0;
+  border: none;
+  background: #ff397e;
+  color: #fff;
+  font-size: toRem(28px);
+  line-height: toRem(80px);
+  text-align: center;
+}
