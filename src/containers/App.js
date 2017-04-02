@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import '../styles/reset.css'
 import '../styles/main.css'
 
-// This is the root component of your app.
+// This is the root component of your app
 // Here you define the overall layout
 // and the container of the react router.
 export default class App extends Component {
