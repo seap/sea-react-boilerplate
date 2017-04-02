@@ -10,10 +10,6 @@ module.exports = isDev => {
       loader: 'babel-loader?cacheDirectory=true'
     },
     {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
-    },
-    {
       test: /\.json$/,
       loader: 'json-loader'
     },
@@ -25,6 +21,10 @@ module.exports = isDev => {
 
   // development rules
   const devRules = [
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    },
     {
       test: /\.(scss|sass)$/,
       exclude: /node_modules/,
@@ -40,11 +40,21 @@ module.exports = isDev => {
   // production rules
   const prdRules = [
     {
-      test: /\.(scss|sass)$/,
-      exclude: /node_modules/,
+      test: /\.css$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader', 'sass-loader']
+        use: ['css-loader']
+      })
+    },
+    {
+      test: /\.(scss|sass)$/,
+      exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader?modules=true&localIdentName=[local]_[hash:base64:5]',
+          'postcss-loader',
+          'sass-loader']
       })
     }
   ]
