@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const devServer = require('./webpack.devServer')
+const devServer = require('./webpack.server')
 const { assetDirectory, publicPath } = require('../config')
 
 const isDev = process.env.NODE_ENV !== 'production'
