@@ -1,1 +1,1 @@
-# React, Redux, React-Router, Immutable, Webpack2 boilerplate
+# React Boilerplate Powered by Sea
