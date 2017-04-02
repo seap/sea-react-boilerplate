@@ -4,13 +4,13 @@ const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const { assetDirectory } = require('../config')
 
-module.exports = env => {
+module.exports = isDev => {
   // common plugins
   const commonPlugins = [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
-      __DEV__: env !== 'production'
+      __DEV__: isDev
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
@@ -20,7 +20,7 @@ module.exports = env => {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
-      filename: 'vendor.[hash].js',
+      // filename: 'vendor.[hash:8].js',
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -51,13 +51,13 @@ module.exports = env => {
       }
     }),
     new ExtractTextPlugin({
-      filename: '[name].[contenthash].css'
+      filename: `${assetDirectory}/[name].[contenthash:8].css`
     })
   ]
 
-  if (env === 'production') {
-    return [...commonPlugins, ...prdPlugins]
-  } else {
+  if (isDev) {
     return [...commonPlugins, ...devPlugins]
+  } else {
+    return [...commonPlugins, ...prdPlugins]
   }
 }

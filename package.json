@@ -4,7 +4,8 @@
   "description": "react boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --colors --config webpack/webpack.conf.dev.js",
+    "start": "webpack-dev-server --colors --config webpack/webpack.config.js",
+    "build": "rm -rf ./dist && NODE_ENV=\"production\" webpack --config webpack/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sea.yang",
@@ -32,6 +33,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

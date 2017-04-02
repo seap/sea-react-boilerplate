@@ -1,7 +1,9 @@
+const { port } = require('../config')
+
 module.exports = {
   contentBase: './src',
   historyApiFallback: true,
-  port: 4000,
+  port: port || 3000,
   compress: false,
   inline: true,
   hot: true,

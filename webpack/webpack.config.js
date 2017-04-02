@@ -1,33 +1,37 @@
 const path = require('path')
 const webpack = require('webpack')
 const devServer = require('./webpack.devServer')
+const { assetDirectory, publicPath } = require('../config')
+
+const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   context: path.resolve(__dirname, '../src'),
-  devtool: 'cheap-module-source-map',
+  devtool: isDev ? 'cheap-module-eval-source-map' : '',
   entry: {
-    main: ['react-hot-loader/patch', 'main.js'],
+    main: isDev ? ['react-hot-loader/patch', 'main.js'] : ['main.js'],
     vendor: [
       'babel-polyfill',
       // 'es6-promise',
       // 'immutable',
-      'isomorphic-fetch',
-      'react-dom',
-      'react-redux',
-      'react-router',
       'react',
+      'react-dom',
+      'react-router',
+      'redux',
+      'react-redux',
       'redux-thunk',
-      'redux'
+      'react-router-redux',
+      'isomorphic-fetch'
     ]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
-    filename: '[name].[hash].js',
-    chunkFilename: '[name].[chunkhash].js'
+    publicPath: isDev ? '/' : publicPath,
+    filename: `${assetDirectory}/[name].[hash:8].js`,
+    chunkFilename: `${assetDirectory}/[name].[chunkhash:8].js`
   },
   module: {
-    rules: require('./webpack.rules')('development')
+    rules: require('./webpack.rules')(isDev)
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -36,6 +40,6 @@ module.exports = {
       path.resolve(__dirname, '../src')
     ]
   },
-  plugins: require('./webpack.plugins')('development'),
+  plugins: require('./webpack.plugins')(isDev),
   devServer
 }

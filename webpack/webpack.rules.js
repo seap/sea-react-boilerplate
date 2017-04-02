@@ -1,15 +1,13 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const { assetDirectory } = require('../config')
 
-module.exports = env => {
+
+module.exports = isDev => {
   const commonRules = [
     {
       test: /\.jsx?$/,
       exclude: /node_modules|dist/,
       loader: 'babel-loader?cacheDirectory=true'
-    },
-    {
-      test: /\.(ttf|eot|svg|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'file-loader'
     },
     {
       test: /\.css$/,
@@ -20,8 +18,8 @@ module.exports = env => {
       loader: 'json-loader'
     },
     {
-      test: /\.(png|jpe?g|gif)$/,
-      loader: 'url-loader?limit=8192'
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: `file-loader?name=${assetDirectory}/[name].[hash:8].[ext]`
     }
   ]
 
@@ -32,7 +30,7 @@ module.exports = env => {
       exclude: /node_modules/,
       use: [
         'style-loader',
-        'css-loader?sourceMap&modules=true&localIdentName=[local]_[hash:base64:8]',
+        'css-loader?sourceMap&modules=true&localIdentName=[local]_[hash:base64:5]',
         'postcss-loader',
         'sass-loader?sourceMap'
       ]
@@ -51,9 +49,9 @@ module.exports = env => {
     }
   ]
 
-  if (env === 'production') {
-    return [...commonRules, ...prdRules]
-  } else {
+  if (isDev) {
     return [...commonRules, ...devRules]
+  } else {
+    return [...commonRules, ...prdRules]
   }
 }

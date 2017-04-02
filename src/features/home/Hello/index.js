@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 
 import styles from './main.scss'
+import reactLogo from './react.svg'
 
 class Hello extends Component {
 
