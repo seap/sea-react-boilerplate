@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-// import '../../styles/reset.css'
-// import '../../styles/main.css'
+import '../styles/reset.css'
+import '../styles/main.css'
 
 // This is the root component of your app.
 // Here you define the overall layout
@@ -12,7 +12,6 @@ export default class App extends Component {
     return (
       <div className="wrapper">
         {children}
-        <div>1</div>
       </div>
     )
   }

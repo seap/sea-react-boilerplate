@@ -1,4 +1,4 @@
-# React Boilerplate Powered by Sea
+# React Boilerplate
 
 ## Folder Structure
 ```

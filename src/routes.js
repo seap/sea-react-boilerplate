@@ -1,36 +1,42 @@
-import { App } from 'containers/App'
-import { PageNotFound } from 'containers/PageNotFound'
-import homeRoute from './features/home/route';
+import App from './containers/App'
+import Hello from './features/home/Hello'
+import homeRoute from './features/home/route'
 
 const childRoutes = [
   homeRoute
 ]
 
+const pageNotFound = {
+  path: '*',
+  getComponent(location, cb) {
+    require.ensure([], require => cb(null, require('./containers/PageNotFound').default), '404')
+  }
+}
+// configuration with plain routes
 const routes = [{
   path: '/',
   component: App,
+  indexRoute: { component: Hello },
   childRoutes: [
     ...childRoutes,
-    { path: '*', name: 'Page not found', component: PageNotFound },
-  ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
+    pageNotFound
+  ]
 }]
 
-// Handle isIndex property of route config:
+// check isIndex property of route config:
 //  1. remove the first child with isIndex=true if no path property from childRoutes
 //  2. assign it to the indexRoute property of the parent.
-function handleIndexRoute(route) {
+function checkIndexRoute(route) {
   if (!route.childRoutes || !route.childRoutes.length) {
     return
   }
 
   route.childRoutes = route.childRoutes.filter(child => {
     if (child.isIndex) {
-      /* istanbul ignore next */
-      if (process.env.NODE_ENV === 'dev' && route.indexRoute) {
+      if (__DEV__ && route.indexRoute) {
         console.error('More than one index route: ', route)
       }
 
-      /* istanbul ignore else */
       if (!route.indexRoute) {
         const indexRoute = { ...child }
         delete indexRoute.path
@@ -41,8 +47,8 @@ function handleIndexRoute(route) {
     return true
   })
 
-  route.childRoutes.forEach(handleIndexRoute)
+  route.childRoutes.forEach(checkIndexRoute)
 }
 
-routes.forEach(handleIndexRoute)
+// routes.forEach(handleIndexRoute)
 export default routes

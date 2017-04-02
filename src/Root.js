@@ -6,7 +6,6 @@ import routes from './routes'
 export default class Root extends Component {
 
   render() {
-    console.log('Root rendering..')
     const { store, history } = this.props
     if (!this.routeConfig) this.routeConfig = routes
     return (

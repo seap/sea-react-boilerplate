@@ -10,7 +10,6 @@ const store = configStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
 function renderApp(app) {
-  console.log('111111', Root)
   const mountNode = document.getElementById('root')
   ReactDOM.render(<AppContainer>{app}</AppContainer>, mountNode)
 }
