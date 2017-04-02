@@ -14,7 +14,7 @@ if (__DEV__) {
   middlewares.push(logger)
 
   if (window.devToolsExtension) {
-    devToolsExtension = window.devToolsExtension();
+    devToolsExtension = window.devToolsExtension()
   }
 }
 
@@ -28,7 +28,7 @@ export default function configureStore(initialState) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('./reducers', () => {
       const nextRootReducer = require('./reducers').default
-      store.replaceReducer(nextRootReducer);
+      store.replaceReducer(nextRootReducer)
     })
   }
   return store

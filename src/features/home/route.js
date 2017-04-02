@@ -1,4 +1,5 @@
 import Hello from './Hello'
+import Counter from './Counter'
 
 export default {
   path: '/home',
@@ -7,6 +8,11 @@ export default {
     { path: 'hello',
       name: 'Hello',
       component: Hello,
+      isIndex: true,
+    },
+    { path: 'counter',
+      name: 'Counter',
+      component: Counter,
       isIndex: true,
     }
   ]
