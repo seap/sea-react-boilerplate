@@ -1,6 +1,21 @@
 # React Boilerplate
 
-## Folder Structure
+## Features
+
+## Usage
+
+```
+# Setup
+$ npm install
+
+# Start dev server
+$ npm run start
+
+# Build for production
+$ npm run build
+```
+
+## Project Structure
 ```
 ├── src
 │   ├── components
