@@ -1,4 +1,5 @@
 # React Boilerplate
+A start kit and boilerplate for building scalable web applications with React, Redux and React-router.
 
 ## Features
 
