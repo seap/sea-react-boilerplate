@@ -33,7 +33,7 @@ function checkIndexRoute(route) {
 
   route.childRoutes = route.childRoutes.filter(child => {
     if (child.isIndex) {
-      if (__DEV__ && route.indexRoute) {
+      if ((process.env.NODE_ENV === 'development') && route.indexRoute) {
         console.error('More than one index route: ', route)
       }
 

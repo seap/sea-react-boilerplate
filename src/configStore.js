@@ -6,7 +6,7 @@ import rootReducer from './reducers'
 const middlewares = [thunk]
 let devToolsExtension = f => f
 
-if (__DEV__) {
+if (process.env.NODE_ENV === 'development') {
   const { logger } = require('redux-logger')
   middlewares.push(logger)
 

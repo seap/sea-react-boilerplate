@@ -10,7 +10,7 @@ module.exports = isDev => {
   // common plugins
   const commonPlugins = [
     new webpack.DefinePlugin({
-      __DEV__: isDev
+      'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production')
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
