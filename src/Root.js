@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router'
 import routes from './routes'
 
+// binding React with Redux and Router
 export default class Root extends Component {
 
   render() {
