@@ -24,6 +24,9 @@ $ npm run dev
 
 # Build for production
 $ npm run build
+
+# Start static checking
+$ npm run lint
 ```
 
 ## Project Structure
