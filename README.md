@@ -2,6 +2,13 @@
 A start kit and boilerplate for building scalable web applications with React, Redux and React-router.
 
 ## Features
+- [x] Use Webpack for bundling
+- [x] Use Webpack dll plugin to improve dev-time build performance
+- [x] Use [Babel](https://babeljs.io) for ES2015(ES6)+ support
+- [x] Use React hot loader for hot module replacement
+- [x] Use Redux for application state management
+- [x] Use immutable state management
+- [x] Use React-router for routing and configure with Redux reducer
 
 ## Usage
 
