@@ -24,8 +24,8 @@ const routes = [{
 }]
 
 // check isIndex property of route config:
-//  1. remove the first child with isIndex=true if no path property from childRoutes
-//  2. assign it to the indexRoute property of the parent.
+// 1. remove the first child with isIndex=true if no path property from childRoutes
+// 2. assign it to the indexRoute property of the parent.
 function checkIndexRoute(route) {
   if (!route.childRoutes || !route.childRoutes.length) {
     return
