@@ -41,7 +41,9 @@ function checkIndexRoute(route) {
         const indexRoute = { ...child }
         delete indexRoute.path
         route.indexRoute = indexRoute
-        if (!child.path) return false
+        if (!child.path) {
+          return false
+        }
       }
     }
     return true

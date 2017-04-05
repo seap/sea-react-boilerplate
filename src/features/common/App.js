@@ -5,7 +5,6 @@ import '../../styles/main.css'
 // Here you define the overall layout
 // and the container of the react router
 export default class App extends Component {
-
   render() {
     const { children } = this.props
     return (

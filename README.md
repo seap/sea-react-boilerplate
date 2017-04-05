@@ -12,6 +12,9 @@ $ npm install
 # Start dev server
 $ npm run start
 
+# Start dev server without dashboard (window platform)
+$ npm run dev
+
 # Build for production
 $ npm run build
 ```
@@ -19,19 +22,25 @@ $ npm run build
 ## Project Structure
 ```
 ├── src
+│   ├── common
 │   ├── components
-│   ├── containers
+│   ├── constants
 │   ├── features
 │   ├── middlewares
 │   ├── styles
 │   ├── index.html
+│   ├── Root.js
+│   ├── configStore.js
+│   ├── rootReducer.js
+│   ├── routes.js
 │   └── main.js
 ├── webpack
 │   ├── webpack.config.js
+│   ├── webpack.dll.js
 │   ├── webpack.plugins.js
 │   ├── webpack.rules.js
 │   └── webpack.server.js
-├── config
+├── config.js
 ├── .bablerc
 ├── .gitignore
 └── ...
