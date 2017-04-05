@@ -21,7 +21,8 @@ module.exports = {
       'react-redux',
       'redux-thunk',
       'react-router-redux',
-      'isomorphic-fetch'
+      'isomorphic-fetch',
+      'js-cookie'
     ]
   },
   output: {

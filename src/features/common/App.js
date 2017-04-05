@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import '../styles/reset.css'
-import '../styles/main.css'
+import '../../styles/reset.css'
+import '../../styles/main.css'
 
 // Here you define the overall layout
 // and the container of the react router

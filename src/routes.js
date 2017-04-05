@@ -1,4 +1,4 @@
-import App from './containers/App'
+import App from './features/common/App'
 import Hello from './features/home/Hello'
 import homeRoute from './features/home/route'
 
@@ -9,7 +9,7 @@ const childRoutes = [
 const pageNotFound = {
   path: '*',
   getComponent(location, cb) {
-    require.ensure([], require => cb(null, require('./containers/PageNotFound').default), '404')
+    require.ensure([], require => cb(null, require('./features/common/PageNotFound').default), '404')
   }
 }
 // configuration with plain routes
