@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
-// import api from '../middlewares/api'
+import api from '../middlewares/api'
 
-const middlewares = [thunk]
+// redux middlewares
+const middlewares = [thunk, api]
 let devToolsExtension = f => f
 
 if (process.env.NODE_ENV === 'development') {
