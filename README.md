@@ -33,10 +33,15 @@ $ npm run lint
 ```
 ├── src
 │   ├── common
+│   │   └── fetch.js
 │   ├── components
 │   ├── constants
+│   │   ├── api.js
+│   │   └── constants.js
 │   ├── features
+│   │   └── common
 │   ├── middlewares
+│   │   └── api.js
 │   ├── styles
 │   ├── index.html
 │   ├── Root.js

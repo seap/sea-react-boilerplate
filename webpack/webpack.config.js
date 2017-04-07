@@ -39,7 +39,11 @@ module.exports = {
     modules: [
       path.resolve(__dirname, '../node_modules'),
       path.resolve(__dirname, '../src')
-    ]
+    ],
+    alias: {
+      'src': path.resolve(__dirname, '../src'),
+      'components': path.resolve(__dirname, '../src/components')
+    }
   },
   plugins: require('./webpack.plugins')(isDev),
   devServer
