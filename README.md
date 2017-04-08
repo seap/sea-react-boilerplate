@@ -35,6 +35,8 @@ $ npm run lint
 │   ├── common
 │   │   └── fetch.js
 │   ├── components
+│   │   ├── Alert
+│   │   └── Loader
 │   ├── constants
 │   │   ├── api.js
 │   │   └── constants.js
