@@ -14,15 +14,21 @@ class Hello extends Component {
     sendMessage('Message')
   }
 
+  handlePush = () => {
+    
+  }
+
   render() {
 
     return (
       <div>
         Hello Sea Yang!
         <Link to='/home/counter'>
-        <div className={styles.linkBtn}>counter</div>
+          <div className={styles.linkBtn}>counter</div>
         </Link>
         <a onClick={this.handleMessage}>Message</a>
+        <a onClick={this.handlePush}>push</a>
+
       </div>
     )
   }
