@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import { browserHistory } from 'react-router'
+import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
 import api from './middlewares/api'
 
 // redux middlewares
-const middlewares = [thunk, api]
+const middlewares = [thunk, api, routerMiddleware(browserHistory)]
 let devToolsExtension = f => f
 
 if (process.env.NODE_ENV === 'development') {

@@ -14,27 +14,23 @@ class Hello extends Component {
     sendMessage('Message')
   }
 
-  handlePush = () => {
-    
-  }
-
   render() {
-
+    const { number } = this.props.home
     return (
       <div>
         Hello Sea Yang!
         <Link to='/home/counter'>
-          <div className={styles.linkBtn}>counter</div>
+          <div className={styles.linkBtn}>number</div>
         </Link>
-        <a onClick={this.handleMessage}>Message</a>
-        <a onClick={this.handlePush}>push</a>
-
+        <a onClick={this.handlePlus}>plus</a>
+        <p>number: {number}</p>
+        {this.renderDateList()}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({ common: state.common })
+const mapStateToProps = state => ({ common:state.common, home: state.home })
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ ...actions }, dispatch)
 })
