@@ -7,6 +7,7 @@
     "dev": "webpack-dev-server --colors --config webpack/webpack.config.js",
     "start": "webpack-dashboard -t 'React Boilerplate' -- webpack-dev-server --colors --config webpack/webpack.config.js",
     "build": "rm -rf ./dist && NODE_ENV=\"production\" webpack --config webpack/webpack.config.js",
+    "dll": "NODE_ENV=\"production\" webpack --config webpack/webpack.dll.js",
     "lint": "eslint --ext .js,.jsx src"
   },
   "author": "sea.yang",
