@@ -8,7 +8,6 @@ import styles from './main.scss'
 import reactLogo from './react.svg'
 
 class Hello extends Component {
-
   handleMessage = () => {
     const { sendMessage } = this.props.actions
     sendMessage('Message')
