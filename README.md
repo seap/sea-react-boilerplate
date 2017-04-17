@@ -59,6 +59,8 @@ $ npm run lint
 │   └── webpack.server.js
 ├── config.js
 ├── .bablerc
+├── .eslintignore
+├── .eslintrc.js
 ├── .gitignore
-└── ...
+└── README.md
 ```
