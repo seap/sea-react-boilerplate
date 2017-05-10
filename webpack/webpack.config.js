@@ -10,7 +10,7 @@ module.exports = {
   context: path.resolve(__dirname, '../src'),
   devtool: isDev ? 'cheap-module-eval-source-map' : '',
   entry: isDev 
-    ? { main: ['react-hot-loader/patch', 'babel-polyfill', ...main] }
+    ? { main: ['react-hot-loader/patch', ...main] }
     : { main, vendor },
   output: {
     path: path.resolve(__dirname, '../dist'),
