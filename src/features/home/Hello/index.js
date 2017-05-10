@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import * as actions from '../redux/actions'
 import styles from './main.scss'
-import reactLogo from './react.svg'
 
 class Hello extends Component {
   handleMessage = () => {
@@ -17,13 +17,10 @@ class Hello extends Component {
     const { number } = this.props.home
     return (
       <div>
-        Hello Sea Yang!
         <Link to='/home/counter'>
           <div className={styles.linkBtn}>number</div>
         </Link>
-        <a onClick={this.handlePlus}>plus</a>
         <p>number: {number}</p>
-        {this.renderDateList()}
       </div>
     )
   }

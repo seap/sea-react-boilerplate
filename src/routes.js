@@ -1,6 +1,5 @@
-import App from './features/common/App'
-import Hello from './features/home/Hello'
-import homeRoute from './features/home/route'
+import App from 'features/common/App'
+import homeRoute from 'features/home/route'
 
 const childRoutes = [
   homeRoute
@@ -16,7 +15,7 @@ const pageNotFound = {
 const routes = [{
   path: '/',
   component: App,
-  indexRoute: { component: Hello },
+  // indexRoute: { component: Hello },
   childRoutes: [
     ...childRoutes,
     pageNotFound

@@ -2,7 +2,7 @@ const path = require('path')
 const { port } = require('../config')
 
 module.exports = {
-  contentBase: path.join(__dirname, "lib"),
+  contentBase: path.join(__dirname, '../lib'),
   historyApiFallback: true,
   disableHostCheck: true,
   port: port || 3000,
@@ -21,7 +21,7 @@ module.exports = {
     version: false,
     warnings: true,
     colors: {
-      green: '\u001b[32m',
+      green: '\u001b[32m'
     }
   }
 }

@@ -1,36 +1,36 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { vendor } = require('./webpack.entrys')
 
-const webpackConfig = require('./webpack.config')
-const vendors = webpackConfig.entry.vendor
+// const webpackConfig = require('./webpack.config')
+// const vendors = webpackConfig.entry.vendor
+
+const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  entry: {
-    vendor: vendors,
-  },
+  entry: { vendor },
   output: {
-    path: path.resolve(__dirname, './lib'),
-    filename: '[name].[chunkhash:8].js',
-    library: '[name]_[chunkhash:8]'
+    path: path.resolve(__dirname, '../lib'),
+    publicPath: '/',
+    filename: '[name].js',
+    library: '[name]'
+  },
+  module: {
+    rules: require('./webpack.rules')(isDev)
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.tpl.html'),
+      template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html'
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new webpack.DllPlugin({
-      context: __dirname,
-      path: path.resolve(__dirname, './lib/vendor.manifest.json'),
-      name: '[name]_[chunkhash:8]'
+      context: path.resolve(__dirname, '../src'),
+      path: path.resolve(__dirname, '../lib/vendor.manifest.json'),
+      name: '[name]'
     })
   ]
 }

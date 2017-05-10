@@ -13,7 +13,6 @@ export default {
   name: 'Home',
   childRoutes: [
     {
-      name: 'Hello',
       component: Hello,
       isIndex: true
     },
