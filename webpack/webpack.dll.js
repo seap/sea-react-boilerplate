@@ -3,9 +3,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { vendor } = require('./webpack.entrys')
 
-// const webpackConfig = require('./webpack.config')
-// const vendors = webpackConfig.entry.vendor
-
 const isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = {

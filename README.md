@@ -3,11 +3,11 @@ A start kit and boilerplate for building scalable web applications with React, R
 
 ## Features
 - [x] Use [Webpack](https://webpack.github.io/) for bundling
-- [x] Use Webpack dll plugin to improve build performance
+- [x] Use [Webpack dll plugin](https://github.com/webpack/docs/wiki/list-of-plugins#dllplugin) to improve build performance
 - [x] Use [Babel](https://babeljs.io) for ES2015(ES6)+ support
 - [x] Use [React hot loader](https://gaearon.github.io/react-hot-loader/) for hot module replacement
 - [x] Use [Redux](http://redux.js.org/) for application state management
-- [x] Use immutable state management
+- [x] Use [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) for immutable state management
 - [x] Use [React-router](https://github.com/ReactTraining/react-router) for routing and configure with Redux reducer
 
 ## Usage
