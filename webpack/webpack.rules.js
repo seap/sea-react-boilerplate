@@ -7,7 +7,7 @@ module.exports = isDev => {
     {
       test: /\.jsx?$/,
       exclude: /node_modules|dist/,
-      loader: 'babel-loader'
+      loader: 'babel-loader?cacheDirectory'
     },
     {
       test: /\.json$/,
